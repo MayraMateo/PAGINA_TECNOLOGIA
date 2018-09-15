@@ -14,18 +14,18 @@
 
   
 </head>
-<script src="https://cdn.plyr.io/3.4.0/plyr.js"></script>
-<script>/*<![CDATA[*/const players = Array.from(document.querySelectorAll('.js-player')).map(player => new Plyr(player));/*]]>*/</script>
 <br></br>
-<audio id="demo" src="audio.mp3"></audio>
 <body>
-
+  <body background="FR.jpg">
+<header>
   <div class="wrapper">
 <div class="block title">
   <h1>TECNOLOGIA</h1>
+</header>
   <br></br>
-  <h2>ENCUENTRA LOS MEJORES VIDEOS DE TECNOLOGIA</h2>
+      <div class="caja">  <font size=10> <h2>ENCUENTRA LOS MEJORES VIDEOS.</h2></font></div>
   <br></br>
+
 </div>
 <div class="block">
 <ul class="navigation">
@@ -38,16 +38,68 @@
 
   <div id="mult">
   	<br></br>
-  	<h3>LO NUEVO DEL 2019....</h3>
-<video src="co.mp4" width=320  height=240 controls poster="vistaprevia.jpg">
+  <div class="caja"> VIDEOS SOBRE TECNOLOGIA</div>
+<video src="co.mp4"  width=380  height=240 controls poster="vistaprevia.jpg">
 Lo sentimos. Este vídeo no puede ser reproducido en tu navegador.<br>
 La versión descargable está disponible en <a href="URL">Enlace</a>. 
 </video>
-	<iframe width="640" height="360" src="https://www.youtube.com/watch?v=YEoIx0R5-zE" frameborder="0" allowfullscreen></iframe>
-  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-
-  
-
+<video src="cortometraje.mp4"  width=380  height=240 controls poster="vistaprevia.jpg">
+Lo sentimos. Este vídeo no puede ser reproducido en tu navegador.<br>
+La versión descargable está disponible en <a href="URL">Enlace</a>. 
+</video>
+<video src="pro.mp4"  width=380  height=240 controls poster="vistaprevia.jpg">
+Lo sentimos. Este vídeo no puede ser reproducido en tu navegador.<br>
+La versión descargable está disponible en <a href="URL">Enlace</a>. 
+</video>
+<video src="pro1.mp4"  width=380  height=240 controls poster="vistaprevia.jpg">
+Lo sentimos. Este vídeo no puede ser reproducido en tu navegador.<br>
+La versión descargable está disponible en <a href="URL">Enlace</a>. 
+</video>
+<video src="pro2.mp4"  width=380  height=240 controls poster="vistaprevia.jpg">
+Lo sentimos. Este vídeo no puede ser reproducido en tu navegador.<br>
+La versión descargable está disponible en <a href="URL">Enlace</a>. 
+</video>
+  <div class="caja"> ENCUENTRA LA MEJOR MUSICA</div>
+<script>
+function cambiarTrack(track) {
+   var path =  track.getAttribute("path")
+   viejo_audio = document.getElementById("reproductor")
+   audio_padre = viejo_audio.parentNode
+   audio_padre.removeChild(viejo_audio)
+   nuevo_audio = document.createElement("audio")
+   nuevo_audio.setAttribute("id","reproductor")
+   nuevo_audio.setAttribute("controls", "controls")
+  // nuevo_audio.setAttribute("autoplay", "autoplay")
+   source = document.createElement("source")
+   source.setAttribute("src", path)
+   source.setAttribute("type", "audio/mpeg")
+   source.setAttribute("id", "reproductorSource")
+   nuevo_audio.appendChild(source)
+   audio_padre.appendChild(nuevo_audio)}
+function cargarReproductor() {
+         var select = document.getElementById("selectTrack")
+         var path = select.options[0].getAttribute("path")
+   nuevo_audio = document.createElement("audio")
+   nuevo_audio.setAttribute("id","reproductor")
+   nuevo_audio.setAttribute("controls", "controls")       
+   source = document.createElement("source")
+   source.setAttribute("src", path)
+   source.setAttribute("type", "audio/mpeg")
+   source.setAttribute("id", "reproductorSource")
+   nuevo_audio.appendChild(source)
+   padre = document.getElementById("reproductorBox")
+   padre.appendChild(nuevo_audio)
+}
+</script>
+<div id="reproductorBox"></div>
+<select id = "selectTrack" multiple onchange="cambiarTrack(this.options[this.selectedIndex]);">
+<option path="psycho.mp3">SLIPKNOT- PYSHOSOCIAL</option>
+<option path="Slipknot - Duality HQ.mp3">SLIPKNOT DUALITY</option>
+<option path="SLIP.mp3">SLIPKNOT SNUFF</option>
+<option path="PSYCHO2.mp3">MUSE PSYCHO</option>
+</select>
+<script>cargarReproductor();</script>
 </body>
 
 </html>
+
